@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './App.css'; // Assuming you have your styles in a CSS file
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import C from "../src/images/c_x.jpg"
 
 const App = () => {
   const deadlineDate = new Date("2024-04-30T00:00:00Z");
@@ -10,7 +11,7 @@ const App = () => {
   // Load tasks from local storage or use default tasks
   const initialTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   
-  // State for remaining time, tasks, active task, tasks completion status, and progress
+  // State for remaining time, tasks, active task, and tasks completion status
   const [remainingTime, setRemainingTime] = useState(calculateRemainingTime());
   const [tasksCompleted, setTasksCompleted] = useState(false);
   const [tasks, setTasks] = useState(initialTasks);
@@ -18,13 +19,6 @@ const App = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [activeTask, setActiveTask] = useState(null);
   const [currentSessionTime, setCurrentSessionTime] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  // Calculate initial progress
-  useEffect(() => {
-    const initialProgress = calculateProgress();
-    setProgress(initialProgress);
-  }, [tasks]);
 
   // Timer effect to update remaining time every second
   useEffect(() => {
@@ -89,15 +83,6 @@ const App = () => {
       return task;
     });
     setTasks(updatedTasks);
-    const newProgress = calculateProgress(updatedTasks);
-    setProgress(newProgress);
-  };
-
-  // Function to calculate progress based on completed tasks
-  const calculateProgress = (tasksList = tasks) => {
-    const completedTasksCount = tasksList.filter(task => task.completed).length;
-    const totalTasksCount = tasksList.length;
-    return (completedTasksCount / totalTasksCount) * 100;
   };
 
   // Function to add a new task
@@ -113,8 +98,6 @@ const App = () => {
       newTask.countdownInterval = startTaskCountdown(newTask);
       setTasks([...tasks, newTask]);
       setNewTaskName("");
-      const newProgress = calculateProgress([...tasks, newTask]);
-      setProgress(newProgress);
     }
   };
 
@@ -129,24 +112,26 @@ const App = () => {
 
   return (
     <div className="container">
-
-      <button className="connect-wallet-button"> Connect Wallet</button>
       <div className="card">
+      <img src={C} style={{ width: '40px', height: '40px' }} />
         <div className="current-session-container">
+        
           <h2>Current Session:
           {activeTask ? (
             <>
               <p>{activeTask.name}</p>
               <p className="countdown">{formatTime(currentSessionTime)}</p>
+            
             </>
           ) : (
             <p>No active task</p>
           )} </h2>
+       
         </div>
-        <div className="overall-countdown-container">
+        {/* <div className="overall-countdown-container">
           <p>Overall Countdown:
           <p className="countdown">{formatTime(remainingTime)}</p> </p>
-        </div>
+        </div> */}
         <div className="task-list">
         
           <ul>
@@ -180,13 +165,11 @@ const App = () => {
             <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} />
             <button className="add-task-button" onClick={addTask}>Add Task</button>
           </div>
+          <p className="countdown">{formatTime(remainingTime)}</p> 
         </div>
         <button onClick={() => setTasksCompleted(!tasksCompleted)} className={tasksCompleted ? "task-button completed" : "task-button"}>
-          {tasksCompleted ? "Deploy" : "not Deployed"}
+          {tasksCompleted ? "Execute Contract" : "Destroy Contract"}
         </button>
-      </div>
-      <div className="progress-container">
-        <div className="progress-bar" style={{ width: `${progress}%` }}></div>
       </div>
     </div>
   );
