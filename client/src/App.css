@@ -1,0 +1,191 @@
+
+/* Center the main div */
+.container {
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  height: 100vh;
+}
+
+/* Additional styles for the main div */
+.connect-wallet-button {
+  position: absolute;
+  top: 10px; /* Adjust top spacing as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 20px;
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 1; /* Ensure the button appears above the card */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for the progress bar */
+.progress-container {
+  width: 100%;
+  height: 20px; /* Adjust height as needed */
+  background-color: #f0f0f0; /* Background color of the progress container */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #6c5ce7; /* Color of the progress bar */
+  border-radius: 10px; /* Rounded corners */
+  transition: width 0.3s ease; /* Transition effect for smooth width changes */
+}
+
+
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(145deg, #E0E0E0, #F5F5F5);
+  border-radius: 30px;
+  box-shadow: 20px 20px 50px #d9d9d9, -20px -20px 50px #ffffff;
+  padding: 50px;
+  text-align: center;
+}
+
+/* Center the card */
+
+
+/* Timer container */
+.timer-container {
+  margin-bottom: 30px;
+}
+
+.countdown {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Task list */
+.task-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.task-list li.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* Add task container */
+.add-task-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.task-input {
+  flex: 1;
+  width: 100%;
+  padding: 15px;
+  margin-right: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-task-button {
+  padding: 15px 30px;
+  background-color: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #4834d4;
+}
+
+/* Task button */
+.task-button {
+  padding: 15px 30px;
+  background-color: #f53b57;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-button:hover {
+  background-color: #c0392b;
+}
+
+
+.current-session-container,
+.overall-countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Add margin between the containers */
+}
+
+.current-session-container h2,
+.overall-countdown-container h1 {
+  margin-bottom: 5px; /* Add spacing between the heading and the countdown */
+  font-size: 15px; /* Increase font size for the headings */
+}
+
+.countdown {
+  font-size: 15px; /* Increase font size for the countdown */
+}
+
+/* Add 3D effect */
+.current-session-container,
+.overall-countdown-container {
+  background-color: #0fb869; /* Background color */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(34, 146, 19, 0.1); /* Box shadow */
+  padding: 5px; /* Padding */
+  color: #ffffff; /* Text color */
+ 
+}
+
+/* Add transitions for smoother animation */
+.current-session-container,
+.overall-countdown-container {
+  transition: transform 0.3s ease;
+}
+
+.current-session-container:hover,
+.overall-countdown-container:hover {
+  transform: translateY(-5px); /* Move the container up on hover */
+}
