@@ -116,8 +116,8 @@ const App = () => {
       <img src={C} style={{ width: '40px', height: '40px' }} />
         <div className="current-session-container">
         
-          <h2>Current Session:
-          {activeTask ? (
+          <h4>Current Session: Admin Evaluation </h4>
+          {/* {activeTask ? (
             <>
               <p>{activeTask.name}</p>
               <p className="countdown">{formatTime(currentSessionTime)}</p>
@@ -125,7 +125,7 @@ const App = () => {
             </>
           ) : (
             <p>No active task</p>
-          )} </h2>
+          )} </h2> */}
        
         </div>
         {/* <div className="overall-countdown-container">
@@ -158,12 +158,12 @@ const App = () => {
             <input
               type="text"
               className="task-input"
-              placeholder="Enter task name"
+              placeholder="Enter"
               value={newTaskName}
               onChange={(e) => setNewTaskName(e.target.value)}
             />
             <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} />
-            <button className="add-task-button" onClick={addTask}>Add Task</button>
+            <button className="add-task-button" onClick={addTask}>Up Next</button>
           </div>
           <p className="countdown">{formatTime(remainingTime)}</p> 
         </div>
